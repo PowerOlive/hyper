@@ -7,7 +7,7 @@ import {icon} from '../config/paths';
 import viewMenu from './menus/view';
 import shellMenu from './menus/shell';
 import editMenu from './menus/edit';
-import pluginsMenu from './menus/plugins';
+import toolsMenu from './menus/tools';
 import windowMenu from './menus/window';
 import helpMenu from './menus/help';
 import darwinMenu from './menus/darwin';
@@ -51,7 +51,7 @@ export const createMenu = (
       .map(([type, count]) => type + (count > 1 ? ` (${count})` : ''))
       .join(', ');
 
-    dialog.showMessageBox({
+    void dialog.showMessageBox({
       title: `About ${appName}`,
       message: `${appName} ${appVersion} (${updateChannel})`,
       detail: `Renderers: ${renderers}\nPlugins: ${pluginList}\n\nCreated by Guillermo Rauch\nCopyright © 2020 Vercel, Inc.`,
@@ -64,7 +64,7 @@ export const createMenu = (
     shellMenu(commandKeys, execCommand),
     editMenu(commandKeys, execCommand),
     viewMenu(commandKeys, execCommand),
-    pluginsMenu(commandKeys, execCommand),
+    toolsMenu(commandKeys, execCommand),
     windowMenu(commandKeys, execCommand),
     helpMenu(commandKeys, showAbout)
   ];
